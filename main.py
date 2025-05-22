@@ -1,11 +1,11 @@
 from fastapi import FastAPI
 
-from routes import screen, stocks
+from routes import screens, stocks
 import uvicorn
 
 app = FastAPI(title="Financial Screener API")
 
-app.include_router(screen.router, prefix="/screens", tags=["Screening Criteria"])
+app.include_router(screens.router, prefix="/screens", tags=["Screening Criteria"])
 app.include_router(stocks.router, prefix="/stocks", tags=["Stocks"])
 
 @app.get("/")
