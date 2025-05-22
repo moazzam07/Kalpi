@@ -4,8 +4,8 @@ import schemas, utils
 router = APIRouter()
 
 @router.get("/")
-async def list_stocks(limit: int = 100):
-    return await utils.get_stocks(limit=limit)
+async def list_stocks(limit: int = 100, skip: int = 0):
+    return await utils.get_stocks(limit=limit, skip=skip)
 
 @router.post("/create")
 async def create_stock(stock: schemas.Stock):
